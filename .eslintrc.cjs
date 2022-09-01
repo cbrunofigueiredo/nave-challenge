@@ -1,7 +1,7 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 'latest',
+    ecmaVersion: 2022,
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true
@@ -22,7 +22,6 @@ module.exports = {
   rules: {
     quotes: [2, 'single'],
     semi: [2, 'never'],
-
     'comma-dangle': [2, 'never'],
     'no-trailing-spaces': [2],
     'jsx-quotes': ['error', 'prefer-single'],
