@@ -3,7 +3,7 @@ import axios from 'axios'
 import { GetToken } from '../utils/token'
 
 const provider = axios.create({
-  baseURL: process.env.API_URL
+  baseURL: process.env.NODE_ENV
 })
 
 provider.interceptors.request.use(config => {

@@ -1,3 +1,4 @@
+import { AxiosResponse } from 'axios'
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 
 import { GetMe, LoginUser } from '../screens/Login/services'
@@ -14,7 +15,7 @@ interface UserData {
 }
 
 interface UserContextData {
-  user: UserData | null
+  user: AxiosResponse | UserData | null
   isFetchingUser: boolean
   Login(credentials: Credentials): Promise<void>
   Logout(): void
@@ -28,15 +29,15 @@ const UserContext = createContext<UserContextData>({} as UserContextData)
 
 const UserProvider = (props: Props) => {
   const [isFetchingUser, setIsFetchingUser] = useState(true)
-  const [user, setUser] = useState<UserData | null>(null)
+  const [user, setUser] = useState<AxiosResponse | UserData | null>(null)
 
   useEffect(() => {
     const fetchUser = async () => {
       const token = await GetToken()
       try {
         if (token) {
-          // const userResponse = await GetMe()
-          // return setUser(userResponse)
+          const userResponse = await GetMe()
+          return setUser(userResponse)
         }
         if (['/login'].includes(window.location.pathname)) {
           return
@@ -53,9 +54,9 @@ const UserProvider = (props: Props) => {
 
   const Login = async (credentials: Credentials) => {
     try {
-      // const loginResponse = await LoginUser(credentials)
-      // SetToken(loginResponse.token)
-      // setUser(loginResponse)
+      const loginResponse = await LoginUser(credentials)
+      SetToken(loginResponse.token)
+      setUser(loginResponse)
     } catch (error) {
       console.log('error', error)
     }
