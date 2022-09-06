@@ -1,4 +1,4 @@
-import { Login } from '../screens'
+import { Login } from 'screens'
 
 import { Route } from 'react-router-dom'
 

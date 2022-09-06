@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Switch } from 'react-router-dom'
 
-import { AppProviders } from '../context'
-import { useUser } from '../context/user'
+import { useUser } from 'context/user'
+import { AppProviders } from 'context'
 import { AuthenticatedApp } from './AuthenticatedApp'
 import { UnauthenticatedApp } from './UnauthenticatedApp'
 

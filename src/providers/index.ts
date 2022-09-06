@@ -1,13 +1,13 @@
 import axios from 'axios'
 
-import { GetToken } from '../utils/token'
+import { getToken } from 'utils/token'
 
 const provider = axios.create({
   baseURL: process.env.NODE_ENV
 })
 
 provider.interceptors.request.use(config => {
-  const token = GetToken()
+  const token = getToken()
 
   return {
     ...config,

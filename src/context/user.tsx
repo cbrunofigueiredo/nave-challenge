@@ -1,8 +1,8 @@
 import { AxiosResponse } from 'axios'
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 
-import { GetMe, LoginUser } from '../screens/Login/services'
-import { GetToken, SetToken, ClearToken } from '../utils/token'
+import { getMe, loginUser } from 'screens/Login/services'
+import { getToken, setToken, clearToken } from 'utils/token'
 
 interface Credentials {
   email: string
@@ -33,10 +33,10 @@ const UserProvider = (props: Props) => {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const token = await GetToken()
+      const token = await getToken()
       try {
         if (token) {
-          const userResponse = await GetMe()
+          const userResponse = await getMe()
           return setUser(userResponse)
         }
         if (['/login'].includes(window.location.pathname)) {
@@ -54,8 +54,8 @@ const UserProvider = (props: Props) => {
 
   const Login = async (credentials: Credentials) => {
     try {
-      const loginResponse = await LoginUser(credentials)
-      SetToken(loginResponse.token)
+      const loginResponse = await loginUser(credentials)
+      setToken(loginResponse.token)
       setUser(loginResponse)
     } catch (error) {
       console.log('error', error)
@@ -63,7 +63,7 @@ const UserProvider = (props: Props) => {
   }
 
   const Logout = () => {
-    ClearToken()
+    clearToken()
     setUser(null)
   }
 
