@@ -1,4 +1,5 @@
-import { ReactNode } from 'react'
+import { ReactNode, FC } from 'react'
+
 import styled from 'styled-components'
 import {
   space,
@@ -19,6 +20,6 @@ export interface RowProps extends SpaceProps, LayoutProps, ColorProps, BorderPro
   children?: ReactNode
 }
 
-const Row = styled.div<RowProps>({ display: 'flex' }, space, layout, color, border, position, flexbox)
+const Row: FC<RowProps> = styled.div<RowProps>({ display: 'flex' }, space, layout, color, border, position, flexbox)
 
 export default Row
