@@ -1,2 +1,1 @@
-export { default as Row } from './Row'
-export * from './Row'
+export { default } from './Row'

@@ -1,4 +1,4 @@
-import { Column, Row } from 'components'
+import { Column } from 'components'
 
 const Login = () => {
   return (

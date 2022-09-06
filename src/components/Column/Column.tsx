@@ -1,4 +1,5 @@
-import { Row, RowProps } from 'components/Row'
+import Row from 'components/Row'
+import { RowProps } from 'components/Row/Row'
 
 export type ColumnProps = RowProps
 
