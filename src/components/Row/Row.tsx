@@ -21,4 +21,4 @@ export interface RowProps extends SpaceProps, LayoutProps, ColorProps, BorderPro
 
 const Row = styled.div<RowProps>({ display: 'flex' }, space, layout, color, border, position, flexbox)
 
-export { Row }
+export default Row

@@ -10,4 +10,4 @@ const Column = (props: ColumnProps) => {
   )
 }
 
-export { Column }
+export default Column
