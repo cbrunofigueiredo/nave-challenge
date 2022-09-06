@@ -17,8 +17,8 @@ interface UserData {
 interface UserContextData {
   user: AxiosResponse | UserData | null
   isFetchingUser: boolean
-  Login(credentials: Credentials): Promise<void>
-  Logout(): void
+  login(credentials: Credentials): Promise<void>
+  logout(): void
 }
 
 interface Props {
@@ -49,10 +49,11 @@ const UserProvider = (props: Props) => {
         setIsFetchingUser(false)
       }
     }
+
     fetchUser()
   }, [])
 
-  const Login = async (credentials: Credentials) => {
+  const login = async (credentials: Credentials) => {
     try {
       const loginResponse = await loginUser(credentials)
       setToken(loginResponse.token)
@@ -62,12 +63,12 @@ const UserProvider = (props: Props) => {
     }
   }
 
-  const Logout = () => {
+  const logout = () => {
     clearToken()
     setUser(null)
   }
 
-  return <UserContext.Provider value={{ user, isFetchingUser, Login, Logout }} {...props} />
+  return <UserContext.Provider value={{ user, isFetchingUser, login, logout }} {...props} />
 }
 
 const useUser = () => useContext(UserContext)
