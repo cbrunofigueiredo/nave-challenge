@@ -1,13 +1,13 @@
-import { Login } from 'screens'
+import { FC } from 'react'
+import { Login } from 'pages'
+import { Route, Routes } from 'react-router-dom'
 
-import { Route } from 'react-router-dom'
-
-const UnauthenticatedApp = () => {
+const UnauthenticatedApp: FC = () => {
   return (
-    <Route exact path='/login'>
-      <Login />
-    </Route>
+    <Routes>
+      <Route path='/login' element={<Login />} />
+    </Routes>
   )
 }
 
-export { UnauthenticatedApp }
+export default UnauthenticatedApp

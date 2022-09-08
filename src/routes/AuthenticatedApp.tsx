@@ -1,13 +1,13 @@
-import { Home } from 'screens'
+import { FC } from 'react'
+import { Home } from 'pages'
+import { Route, Routes } from 'react-router-dom'
 
-import { Route } from 'react-router-dom'
-
-const AuthenticatedApp = () => {
+const AuthenticatedApp: FC = () => {
   return (
-    <Route exact path='/'>
-      <Home />
-    </Route>
+    <Routes>
+      <Route path='/' element={<Home />} />
+    </Routes>
   )
 }
 
-export { AuthenticatedApp }
+export default AuthenticatedApp

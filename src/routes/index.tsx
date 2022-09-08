@@ -1,20 +1,13 @@
-import { BrowserRouter as Router, Switch } from 'react-router-dom'
-
 import { useUser } from 'context/user'
-import { AppProviders } from 'context'
-import { AuthenticatedApp } from './AuthenticatedApp'
-import { UnauthenticatedApp } from './UnauthenticatedApp'
+import { BrowserRouter } from 'react-router-dom'
 
-const Routes = () => {
+import AuthenticatedApp from './AuthenticatedApp'
+import UnauthenticatedApp from './UnauthenticatedApp'
+
+const RoutesComponent = () => {
   const { user } = useUser()
 
-  return (
-    <AppProviders>
-      <Router>
-        <Switch> {user ? <AuthenticatedApp /> : <UnauthenticatedApp />} </Switch>
-      </Router>
-    </AppProviders>
-  )
+  return <BrowserRouter> {user ? <AuthenticatedApp /> : <UnauthenticatedApp />} </BrowserRouter>
 }
 
-export { Routes }
+export { RoutesComponent }
