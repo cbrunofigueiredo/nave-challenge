@@ -1,13 +1,18 @@
+import { AppProviders } from 'context'
 import { useUser } from 'context/user'
 import { BrowserRouter } from 'react-router-dom'
 
 import AuthenticatedApp from './AuthenticatedApp'
 import UnauthenticatedApp from './UnauthenticatedApp'
 
-const RoutesComponent = () => {
+const Routes = () => {
   const { user } = useUser()
 
-  return <BrowserRouter> {user ? <AuthenticatedApp /> : <UnauthenticatedApp />} </BrowserRouter>
+  return (
+    <AppProviders>
+      <BrowserRouter> {user ? <AuthenticatedApp /> : <UnauthenticatedApp />} </BrowserRouter>
+    </AppProviders>
+  )
 }
 
-export { RoutesComponent }
+export { Routes }
