@@ -1,7 +1,7 @@
 import { AxiosResponse } from 'axios'
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 
-import { getMe, loginUser } from 'screens/Login/services'
+import { getMe, loginUser } from 'services/login'
 import { getToken, setToken, clearToken } from 'utils/token'
 
 interface Credentials {
