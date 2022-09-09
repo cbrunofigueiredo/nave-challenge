@@ -1,20 +1,13 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
-    * {
+  * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    outline: none;
   }
-  img {
-    object-fit: cover;
-    object-position: center center;
-  }
-  ul,
-  ol {
-    list-style: none;
-  }
-   button, a {
+  button, a {
     cursor: pointer;
     &:disabled{
       cursor: not-allowed;
