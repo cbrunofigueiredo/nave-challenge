@@ -28,4 +28,4 @@ provider.interceptors.response.use(
   }
 )
 
-export { provider }
+export default provider
