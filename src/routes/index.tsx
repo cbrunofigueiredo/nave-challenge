@@ -10,7 +10,7 @@ import { theme, GlobalStyles } from 'theme'
 import AuthenticatedApp from './AuthenticatedApp'
 import UnauthenticatedApp from './UnauthenticatedApp'
 
-const App: FC = () => {
+const Routes: FC = () => {
   const { user } = useUser()
 
   return (
@@ -23,4 +23,4 @@ const App: FC = () => {
   )
 }
 
-export default App
+export default Routes
