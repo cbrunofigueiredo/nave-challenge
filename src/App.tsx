@@ -7,8 +7,8 @@ import { AppProviders } from 'context'
 
 import { theme, GlobalStyles } from 'theme'
 
-import AuthenticatedApp from './AuthenticatedApp'
-import UnauthenticatedApp from './UnauthenticatedApp'
+import AuthenticatedApp from './routes/AuthenticatedApp'
+import UnauthenticatedApp from './routes/UnauthenticatedApp'
 
 const App: FC = () => {
   const { user } = useUser()
