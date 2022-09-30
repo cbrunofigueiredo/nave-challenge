@@ -1,4 +1,4 @@
-import api from 'providers/api'
+import api from 'services/interceptors'
 
 interface Credentials {
   email: string
