@@ -1,16 +1,9 @@
-import Row from 'components/Row'
-
 import { FC } from 'react'
-import { RowProps } from 'components/Row/Row'
+import { Row } from 'components'
+import { RowProps } from 'components/Row'
 
 export type ColumnProps = RowProps
 
-const Column: FC<ColumnProps> = (props: ColumnProps) => {
-  return (
-    <Row flexDirection='column' {...props}>
-      {props.children}
-    </Row>
-  )
-}
+const ColumnComponent: FC<ColumnProps> = props => <Row flexDirection='column' {...props} />
 
-export default Column
+export default ColumnComponent

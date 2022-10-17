@@ -1,10 +1,23 @@
 import 'styled-components'
 
-import theme from './theme'
-
-type Theme = typeof theme
-
 declare module 'styled-components' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  export interface DefaultTheme extends Theme {}
+  export interface DefaultTheme {
+    colors: {
+      primary: string
+      secondary: string
+      'secondary-100': string
+      terciary: string
+      quaternary: string
+      quinaria: string
+    }
+    space: []
+
+    sizes: {
+      large: string
+      big: number
+      regular: number
+      medium: number
+      small: number
+    }
+  }
 }

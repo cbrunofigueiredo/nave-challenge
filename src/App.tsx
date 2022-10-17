@@ -1,16 +1,48 @@
-import Routes from 'routes'
+import { ThemeProvider, createGlobalStyle } from 'styled-components'
+import { BrowserRouter as Router, Switch } from 'react-router-dom'
 
-import { AppProviders } from 'providers'
-import { ThemeProvider } from 'styled-components'
-import { theme, GlobalStyles } from 'theme'
+import { useUser } from 'context/user'
+import { theme } from 'theme'
 
-const App = () => (
-  <ThemeProvider theme={theme}>
-    <GlobalStyles />
-    <AppProviders>
-      <Routes />
-    </AppProviders>
-  </ThemeProvider>
-)
+import AuthenticatedApp from './AuthenticatedApp'
+import UnauthenticatedApp from './UnauthenticatedApp'
+
+export const GlobalStyle = createGlobalStyle`
+  * {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+  }
+  a {
+    text-decoration: none;
+  }
+
+  iframe {
+    display: none !important;
+  }
+  button, a {
+    cursor: pointer;
+    &:disabled{
+      cursor: not-allowed;
+    }
+  }
+`
+
+const App: React.FC = () => {
+  const { user } = useUser()
+
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Router>
+        <Switch>{user ? <AuthenticatedApp /> : <UnauthenticatedApp />}</Switch>
+      </Router>
+    </ThemeProvider>
+  )
+}
 
 export default App
